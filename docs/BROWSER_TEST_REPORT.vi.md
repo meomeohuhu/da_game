@@ -20,3 +20,9 @@ Run https://github.com/meomeohuhu/da_game/actions/runs/44036778521 **PASS** trê
 Bản sửa hiện tự hoàn tất trồng/nâng Gai đầu màn qua các API trả tiền bình thường nếu chưa thực hiện. Tổng chi phí 110 Sinh Khí được ghi ở nút. Không còn cần lần nhấn thứ hai để mở combat. HUD hiển thị số địch sống và tổng còn lại. Renderer có hình thay thế nếu ảnh enemy chưa tải, tránh quái vô hình. Tệp CSS/JS được gắn phiên bản URL để tránh dùng bản cache cũ.
 
 Nền mới `battlefield-painted.png` là ảnh AI tạo riêng: rừng, vách đá, thác và khoảng đất trống giữa map. Đường và ô xây vẫn vẽ theo tọa độ gameplay thực tế. Test trên runner không đồng nghĩa đã đăng nhập và kiểm tra trang Sites live; giữ phân biệt này khi bàn giao. Việc tải artifact về môi trường làm việc bị endpoint lưu trữ từ chối, nên chưa trực tiếp xem screenshot đã upload tại đây.
+
+## Hiệu ứng bắn tháp
+
+Đã bổ sung lớp trình bày `combat-vfx.js`: chớp đầu nòng, giật tháp, đạn gai/vệt sáng, đạn băng và tia băng, đạn độc bay cong, nổ xung kích/tia lửa. Theo dõi bộ đếm `Tower.shots` và sự kiện Effects thật; không thay đổi damage, tiền hay tốc độ bắn. Lifetime theo thời gian mô phỏng nên pause dừng hiệu ứng. Queue tối đa 100 phát, tự xóa sau 0,7 giây. Hoa Sinh Khí không giả lập bắn.
+
+`node tools/test_combat_vfx.cjs` đạt các kiểm tra bốn kiểu tấn công, không tạo trùng khi nhận snapshot lặp, Canvas save/restore cân bằng, recoil, thời gian pause, expiry và reset. Chromium WebAssembly run https://github.com/meomeohuhu/da_game/actions/runs/44040754041 **PASS**, bao gồm assertion tháp đã phát sự kiện bắn và renderer đã vẽ hiệu ứng trong lượt chơi thực. Đây là kiểm thử build trên runner; không khẳng định đã đăng nhập trang Sites riêng.
