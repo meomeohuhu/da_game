@@ -18,3 +18,9 @@ TestResults/
 !Tests/CoreHarness/CoreHarness.csproj
 __pycache__/
 *.pyc
+BrowserDemo/bin/
+BrowserDemo/obj/
+!BrowserDemo/BrowserDemo.csproj
+**/bin/
+**/obj/
+!Tests/BrowserBridge/BrowserBridge.csproj

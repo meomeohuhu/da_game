@@ -1,0 +1,29 @@
+name: Browser demo build
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'BrowserDemo/**'
+      - 'Assets/EcoGuardian/Core/**'
+      - '.github/workflows/browser-build.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Install WebAssembly build tools
+        run: dotnet workload install wasm-tools
+      - name: Test browser command and JSON bridge
+        run: dotnet run --project Tests/BrowserBridge/BrowserBridge.csproj -c Release
+      - name: Publish the shared C# engine for browsers
+        run: dotnet publish BrowserDemo/BrowserDemo.csproj -c Release -o browser-build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eco-guardian-browser
+          path: browser-build/wwwroot

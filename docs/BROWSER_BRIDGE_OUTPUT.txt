@@ -1,0 +1,20 @@
+PASS Corrupt browser save falls back to fresh progress
+PASS Browser bridge enforces locked stages
+PASS Browser receives five waves for stage 1
+PASS Browser receives five waves for stage 2
+PASS Browser receives five waves for stage 3
+PASS Browser receives five waves for stage 4
+PASS Browser receives five waves for stage 5
+PASS Browser begins with 150 energy
+PASS Fresh browser session contains no towers
+PASS Browser placement charges correct price
+PASS Tower enum and fields serialize for Canvas UI
+PASS Browser enters upgrade tutorial
+PASS Browser upgrade costs 60 and resumes combat
+PASS Browser Frame serializes a spawned enemy
+PASS Browser pause stops simulation through frame bridge
+PASS Browser retry resets session
+PASS Browser permanent upgrade persists in save JSON
+PASS Browser level uses purchased tree upgrade
+PASS Browser receives all skill cooldowns
+PASS: 19 browser bridge assertions. Executed on .NET; does not cover actual browser rendering or WebAssembly execution.

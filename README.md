@@ -4,6 +4,10 @@ Dự án **Unity 2D cho PC**, xây dựng theo kịch bản Người Gác Rừng
 
 > **Trạng thái: bản triển khai đầu tiên, chờ nghiệm thu trong Unity.** Lõi C# đã được kiểm thử trên máy phát triển; chưa chạy Unity Editor, chưa có bản `.exe` được xác minh. Không coi việc qua kiểm thử logic là đã hoàn tất chơi thử/cân bằng chiến dịch.
 
+## Không cài được Unity?
+
+Có thêm [bản chơi thử trên trình duyệt](https://eco-guardian-da-game.bronzeguppy19.chatgpt.site) dành riêng cho chủ dự án. Bản này dùng WebAssembly để chạy lại lõi C# của repo, **không phải Unity WebGL**. Xem [BrowserDemo/README.md](BrowserDemo/README.md). Dự án Unity vẫn giữ nguyên để phát triển tiếp bằng Editor.
+
 ## Mở và chơi
 
 1. Cài **Unity Hub → Unity 2022.3.62f1 LTS**, thêm module Windows Build Support nếu muốn xuất PC.
