@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'BrowserDemo/**'
+      - 'Tests/BrowserE2E/**'
       - 'Assets/EcoGuardian/Core/**'
       - '.github/workflows/browser-build.yml'
 permissions:
