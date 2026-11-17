@@ -20,3 +20,7 @@ A dark jade forest, muted ochre routes, warm gold for economy/traps, cool cyan f
 ## Original asset dedication
 
 To the extent possible under law, the original plant/tree illustrations and synthesized WAV audio created for this repository are dedicated to the public domain under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/). This dedication does not alter third-party font or Kenney licenses. The project name and source document are not included in this dedication.
+
+## Nocturne visual revision
+
+Original CC0 procedural artwork now replaces the six plant/tree sprites and adds nine industrial enemy sprites (`enemy_*.png`) plus `dark-forest.jpg`. The new direction uses angular silhouettes, weathered metal, root/stone bases, restrained cyan and amber illumination, and no cartoon eyes on the towers. These assets are shared by Unity and BrowserDemo. Original dedicated assets retain the CC0 dedication above; Kenney artwork still used for rocks/flames remains under its bundled license.

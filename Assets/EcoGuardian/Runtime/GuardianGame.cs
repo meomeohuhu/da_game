@@ -13,7 +13,7 @@ namespace EcoGuardian
         readonly string[] towerNames={"Cây Gai","Nấm Băng","Hoa Sinh Khí","Quả Nổ","Cây Độc"};
         readonly string[] towerHints={"Sát thương đơn • tầm 3","Làm chậm • đóng băng","Sinh Khí mỗi 10 giây","Bẫy diện rộng • ô vàng","Độc xuyên giáp • tầm 3"};
         readonly string[] skillNames={"Mưa Rừng","Rễ Đại Ngàn","Sức Mạnh Cổ Thụ"};
-        readonly string[] enemySprites={"kenney_245","kenney_246","kenney_270","kenney_249","kenney_271","kenney_250","kenney_249","kenney_250","kenney_250"};
+        readonly string[] enemySprites={"enemy_scout","enemy_lumber","enemy_drone","enemy_bulldozer","enemy_jammer","enemy_heavy","enemy_toxic","enemy_fire","enemy_titan"};
         readonly string[] towerSprites={"thorn","frost","bloom","bomb","poison"};
         SaveData save; Simulation game;string screen="menu";int choosing=-1,skill=-1;Tower selected;
         public string entryScreen="menu";
@@ -85,7 +85,7 @@ namespace EcoGuardian
             GUI.BeginGroup(bounds);
             // A restrained palette makes build pads, route branches and hazards readable.
             for(int x=0;x<20;x++)for(int y=0;y<11;y++){
-                float n=((x*17+y*31)%7)*.003f;Fill(new Rect(x*Cell,y*Cell,Cell,Cell),new Color(.12f+n,.255f+n,.20f+n));
+                float n=((x*17+y*31)%7)*.003f;Fill(new Rect(x*Cell,y*Cell,Cell,Cell),new Color(.07f+n,.12f+n,.16f+n));
                 if((x*13+y*7)%11==0)Sprite("kenney_20",new Rect(x*Cell+8,y*Cell+7,40,40),new Color(.7f,1,.8f,.4f));
             }
             foreach(var route in game.Level.routes)for(int i=1;i<route.points.Count;i++){
