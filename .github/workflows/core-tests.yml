@@ -1,5 +1,7 @@
 name: Core rules
 on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
 jobs:
   simulation:
     runs-on: ubuntu-latest
@@ -8,5 +10,14 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-      - name: Run deterministic C# rule checks
-        run: dotnet run --project Tests/CoreHarness/CoreHarness.csproj --configuration Release
+      - name: Run deterministic rules, seeded scenarios and strategy probes
+        run: |
+          mkdir -p TestResults
+          dotnet run --project Tests/CoreHarness/CoreHarness.csproj --configuration Release | tee TestResults/core.log
+      - name: Check Unity report parser rejects false passes
+        run: python tools/test_unity_runner.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core-test-results
+          path: TestResults

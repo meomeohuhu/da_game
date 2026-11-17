@@ -16,3 +16,5 @@ Tests/CoreHarness/bin/
 Tests/CoreHarness/obj/
 TestResults/
 !Tests/CoreHarness/CoreHarness.csproj
+__pycache__/
+*.pyc

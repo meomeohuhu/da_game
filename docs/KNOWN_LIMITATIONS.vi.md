@@ -4,7 +4,7 @@
 
 Các phần cần tiếp tục để đáp ứng mức hoàn thiện toàn bộ brief:
 
-- Chơi thử và cân bằng đủ 5 màn với tài nguyên hợp lệ; thời lượng 20–40 phút chưa đo. Kiểm thử tự động tiêu diệt địch bằng API chỉ xác nhận bookkeeping, không chứng minh màn chơi thắng được bằng chiến thuật.
+- Chơi thử và cân bằng đủ 5 màn trong Unity; thời lượng 20–40 phút chưa đo. Đã có bot dùng tài nguyên/kỹ năng hợp lệ thắng từng màn trong mô phỏng lõi. Bot này không thay kiểm thử Unity/UI hoặc đánh giá chiến thuật của người chơi; test bookkeeping dùng API Damage vẫn chỉ xác nhận đếm wave.
 - Dựng Tilemap/prefab để chỉnh map trong Editor; hiện bản đồ được vẽ bằng GUI theo waypoint. Bố cục các màn dùng chung trục đường chính và thêm nhánh; chưa phải năm bản đồ mỹ thuật độc lập.
 - Có ô ô nhiễm và lửa nhưng chưa có lớp sông/nước hoàn chỉnh. Không cho xây ngoài các ô được chỉ định.
 - Hội thoại và panel kết thúc đã có; cinematic lướt camera, máy chặt cây, tái sinh rừng và cử chỉ nhân vật An chưa được dựng thành animation.

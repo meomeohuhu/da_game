@@ -22,6 +22,7 @@ Chuột trái chọn tháp/kỹ năng và xác nhận trên bản đồ. Ô xanh
 - Ba kỹ năng; lửa cảnh báo/lan/tự tắt; Titan ba giai đoạn, quân hỗ trợ và Shockwave.
 - Menu, chọn màn, hướng dẫn, HUD, pause, kết quả; lưu JSON, sao tốt nhất và ba nâng cấp vĩnh viễn.
 - Hình Kenney CC0, tháp thực vật vẽ riêng, font Noto Sans có tiếng Việt, nhạc nền ambient và bốn cue âm thanh gốc.
+- Kiểm thử mở rộng: 100 phiên thao tác ngẫu nhiên kèm replay, 30 lượt bot chiến thuật; hai chiến thuật thắng được từng màn 1–5 trong mô phỏng lõi, không bơm tiền/HP.
 - Bộ kiểm thử lõi dùng chung với Unity EditMode; smoke test PlayMode và kiểm tra import asset đã được viết, **chưa chạy** trên máy này.
 
 ## Kiểm thử
@@ -31,6 +32,8 @@ Không cần Unity để chạy logic:
 ```sh
 dotnet run --project Tests/CoreHarness/CoreHarness.csproj --configuration Release
 ```
+
+Chưa cài Unity? Xem [hướng dẫn cài và công cụ chạy test](docs/TESTING_SETUP.vi.md). Có script `python tools/run_unity_tests.py --unity /path/to/Unity` tự chạy hai nhóm và kiểm tra báo cáo NUnit.
 
 Trong Unity: **Window → General → Test Runner**, chạy EditMode rồi PlayMode. Chạy thêm **Eco Guardian → Validate Asset Imports** và checklist ở [docs/TEST_PLAN.vi.md](docs/TEST_PLAN.vi.md). CI `Core rules` tự chạy sau push; `Unity acceptance` chạy thủ công và cần Unity license hợp lệ trong GitHub Secrets. Không đưa license/token vào repo.
 

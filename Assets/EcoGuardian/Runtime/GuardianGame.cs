@@ -20,7 +20,7 @@ namespace EcoGuardian
         bool resultSaved,showHelp,showSettings,titanSeen;float shakeLeft;int introStep=-1;float menuTime;int lastKills,lastWave;AudioSource music,sound;string saveWarning="";
         GUIStyle label,small,title,button;Texture2D white;Vector2 pointer;float scale;bool stylesReady;
         readonly Color ink=new Color(.83f,.91f,.83f),muted=new Color(.49f,.65f,.59f),gold=new Color(.94f,.76f,.46f),mint=new Color(.52f,.84f,.66f);
-        string SavePath {get{return Path.Combine(Application.persistentDataPath,"eco-guardian-save.json");}}
+        string SavePath {get{return Path.Combine(string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ECO_GUARDIAN_SAVE_DIR"))?Application.persistentDataPath:Environment.GetEnvironmentVariable("ECO_GUARDIAN_SAVE_DIR"),"eco-guardian-save.json");}}
         void Awake()
         {
             Application.targetFrameRate=60;white=Texture2D.whiteTexture;
@@ -28,7 +28,7 @@ namespace EcoGuardian
             screen=entryScreen;game=new Simulation(Campaign.Create(1),save);var cam=Camera.main;if(cam==null){var cameraObject=new GameObject("Main Camera");cameraObject.tag="MainCamera";cam=cameraObject.AddComponent<Camera>();cam.orthographic=true;cameraObject.AddComponent<AudioListener>();}cam.backgroundColor=new Color(.025f,.08f,.075f);
         }
         SaveData Load(){try{if(File.Exists(SavePath)){var s=JsonUtility.FromJson<SaveData>(File.ReadAllText(SavePath));if(s!=null){s.Sanitize();return s;}}}catch(Exception ex){Debug.LogWarning("Save could not be loaded: "+ex.Message);saveWarning="Không đọc được bản lưu. Đang dùng tiến trình mới.";}return new SaveData();}
-        void Persist(){try{string temp=SavePath+".tmp";File.WriteAllText(temp,JsonUtility.ToJson(save,true));if(File.Exists(SavePath))File.Copy(SavePath,SavePath+".bak",true);File.Copy(temp,SavePath,true);File.Delete(temp);}catch(Exception ex){saveWarning="Không lưu được tiến trình: "+ex.Message;Debug.LogWarning(saveWarning);}}
+        void Persist(){try{Directory.CreateDirectory(Path.GetDirectoryName(SavePath));string temp=SavePath+".tmp";File.WriteAllText(temp,JsonUtility.ToJson(save,true));if(File.Exists(SavePath))File.Copy(SavePath,SavePath+".bak",true);File.Copy(temp,SavePath,true);File.Delete(temp);}catch(Exception ex){saveWarning="Không lưu được tiến trình: "+ex.Message;Debug.LogWarning(saveWarning);}}
         void Cue(string name){if(save.sfx){var c=Resources.Load<AudioClip>("Audio/"+name);if(c!=null)sound.PlayOneShot(c);}}
         void Update()
         {

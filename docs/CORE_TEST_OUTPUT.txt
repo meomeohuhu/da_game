@@ -143,4 +143,39 @@ PASS Titan phase one summons every twelve seconds
 PASS Boss death leaves existing support alive
 PASS Slow and poison expire
 PASS Retry starts with clean runtime state
+PASS scenario invariants: 100 sessions, 83320 steps, 100 deterministic replays.
+Observed outcomes (not a win-rate/balance guarantee): victories=0, defeats=100, timeouts=0
+STRATEGY_PROBE,level,strategy,result,wave,hp,seconds,kills,planted
+STRATEGY_PROBE,1,thorn,Victory,5,100,122.6,43,6
+STRATEGY_PROBE,1,mixed,Victory,5,100,122.6,43,6
+STRATEGY_PROBE,1,economy,Victory,5,100,122.6,43,6
+STRATEGY_PROBE,1,late-poison,Victory,5,100,122.6,43,6
+STRATEGY_PROBE,1,upgrade-two,Victory,5,100,114.2,43,4
+STRATEGY_PROBE,1,upgrade-four,Victory,5,100,115.6,43,5
+STRATEGY_PROBE,2,thorn,Victory,5,100,129.4,65,8
+STRATEGY_PROBE,2,mixed,Victory,5,100,148.3,65,8
+STRATEGY_PROBE,2,economy,Victory,5,100,148.3,65,8
+STRATEGY_PROBE,2,late-poison,Victory,5,100,129.4,65,8
+STRATEGY_PROBE,2,upgrade-two,Victory,5,100,129,65,7
+STRATEGY_PROBE,2,upgrade-four,Victory,5,100,126.3,65,7
+STRATEGY_PROBE,3,thorn,Victory,5,45,175.4,75,10
+STRATEGY_PROBE,3,mixed,Defeat,1,0,40.5,3,3
+STRATEGY_PROBE,3,economy,Defeat,1,0,39.8,3,3
+STRATEGY_PROBE,3,late-poison,Victory,5,60,185.1,75,10
+STRATEGY_PROBE,3,upgrade-two,Victory,5,20,175.4,71,7
+STRATEGY_PROBE,3,upgrade-four,Victory,5,75,180.3,75,6
+STRATEGY_PROBE,4,thorn,Victory,5,100,148.7,102,12
+STRATEGY_PROBE,4,mixed,Defeat,2,0,62.8,12,4
+STRATEGY_PROBE,4,economy,Defeat,2,0,62.1,15,6
+STRATEGY_PROBE,4,late-poison,Victory,5,100,163.7,102,12
+STRATEGY_PROBE,4,upgrade-two,Victory,5,70,163.7,95,9
+STRATEGY_PROBE,4,upgrade-four,Victory,5,95,161.9,100,9
+STRATEGY_PROBE,5,thorn,Defeat,5,0,251.7,82,14
+STRATEGY_PROBE,5,mixed,Defeat,1,0,44.7,8,3
+STRATEGY_PROBE,5,economy,Defeat,1,0,44.7,8,4
+STRATEGY_PROBE,5,late-poison,Defeat,5,0,274.6,83,14
+STRATEGY_PROBE,5,upgrade-two,Victory,5,50,232.7,72,8
+STRATEGY_PROBE,5,upgrade-four,Victory,5,90,234,81,8
+PASS: upgrade-four wins each of the five full-stage simulations with ordinary player actions (seed 42).
+Strategy probes use ordinary placement/upgrades/skills and Tick; no injected currency, HP or Damage. Results describe these bots only, not human balance or Unity playtesting.
 PASS: 145 checks. Pure C# simulation only; Unity import, rendering and builds are NOT covered.
