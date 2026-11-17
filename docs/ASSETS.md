@@ -28,3 +28,5 @@ Original CC0 procedural artwork now replaces the six plant/tree sprites and adds
 ## Painted turret atlas
 
 `turrets-painted.png` is an original AI-generated transparent 2172×724 atlas made for this project, replacing the five procedural plant sprites in browser and Unity rendering. It is not a third-party asset pack and is not represented as human-painted or as a copy of the reference illustration. Browser Canvas, CSS and Unity IMGUI select one of five equal source regions at runtime; the original PNG is preserved. Individual upgrade/attack animation frames are not included.
+
+`battlefield-painted.png` is an original AI-generated enchanted forest environment with an unobstructed center, used as the browser battlefield and menu backdrop. Runtime waypoint roads and tower pads are drawn over it so gameplay still uses actual route data.
