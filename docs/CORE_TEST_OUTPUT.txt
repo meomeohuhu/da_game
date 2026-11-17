@@ -1,0 +1,146 @@
+PASS Five waves in level 1
+PASS Build-pad count level 1
+PASS Pad is off-path 1:3,3
+PASS Pad is off-path 1:5,6
+PASS Pad is off-path 1:8,6
+PASS Pad is off-path 1:11,5
+PASS Pad is off-path 1:13,3
+PASS Pad is off-path 1:15,5
+PASS Pad is off-path 1:3,6
+PASS Pad is off-path 1:9,4
+PASS Five waves in level 2
+PASS Build-pad count level 2
+PASS Pad is off-path 2:3,3
+PASS Pad is off-path 2:5,6
+PASS Pad is off-path 2:8,6
+PASS Pad is off-path 2:11,5
+PASS Pad is off-path 2:13,3
+PASS Pad is off-path 2:15,5
+PASS Pad is off-path 2:3,6
+PASS Pad is off-path 2:9,4
+PASS Pad is off-path 2:6,8
+PASS Pad is off-path 2:9,8
+PASS Pad is off-path 2:1,6
+PASS Pad is off-path 2:2,6
+PASS Pad is off-path 2:2,7
+PASS Five waves in level 3
+PASS Build-pad count level 3
+PASS Pad is off-path 3:3,3
+PASS Pad is off-path 3:5,6
+PASS Pad is off-path 3:8,6
+PASS Pad is off-path 3:11,5
+PASS Pad is off-path 3:13,3
+PASS Pad is off-path 3:15,5
+PASS Pad is off-path 3:3,6
+PASS Pad is off-path 3:6,8
+PASS Pad is off-path 3:9,8
+PASS Pad is off-path 3:1,8
+PASS Pad is off-path 3:6,3
+PASS Pad is off-path 3:7,1
+PASS Five waves in level 4
+PASS Build-pad count level 4
+PASS Pad is off-path 4:3,3
+PASS Pad is off-path 4:5,6
+PASS Pad is off-path 4:8,6
+PASS Pad is off-path 4:11,5
+PASS Pad is off-path 4:13,3
+PASS Pad is off-path 4:15,5
+PASS Pad is off-path 4:3,6
+PASS Pad is off-path 4:9,4
+PASS Pad is off-path 4:6,8
+PASS Pad is off-path 4:9,8
+PASS Pad is off-path 4:1,8
+PASS Pad is off-path 4:6,3
+PASS Pad is off-path 4:7,1
+PASS Pad is off-path 4:11,3
+PASS Five waves in level 5
+PASS Build-pad count level 5
+PASS Pad is off-path 5:3,3
+PASS Pad is off-path 5:5,6
+PASS Pad is off-path 5:8,6
+PASS Pad is off-path 5:11,5
+PASS Pad is off-path 5:13,3
+PASS Pad is off-path 5:15,5
+PASS Pad is off-path 5:3,6
+PASS Pad is off-path 5:9,4
+PASS Pad is off-path 5:6,8
+PASS Pad is off-path 5:9,8
+PASS Pad is off-path 5:1,8
+PASS Pad is off-path 5:6,3
+PASS Pad is off-path 5:7,1
+PASS Pad is off-path 5:11,3
+PASS Pad is off-path 5:15,3
+PASS Pad is off-path 5:17,4
+PASS Fresh stage resources
+PASS Plant valid tower
+PASS Overlap does not charge
+PASS Bomb rejected on normal pad
+PASS Thorn rejected on trap pad
+PASS Locked tower rejected
+PASS Invalid index does not charge
+PASS Pollution blocks placement
+PASS Upgrade correct cost
+PASS Unaffordable upgrade does not charge
+PASS Sell refunds floor of 60 percent invested
+PASS Cannot sell twice
+PASS No passive income in preparation
+PASS Pause freezes preparation
+PASS First start has no early bonus
+PASS Repeated start rejected
+PASS Combat income is 2 per second
+PASS Pause freezes combat movement and clocks
+PASS Death grants exactly one reward
+PASS Armor reduces direct damage by 30 percent
+PASS Poison ignores armor
+PASS Slow does not stack
+PASS Poison strongest and duration refresh
+PASS Boss status resistance
+PASS Wave remains active while queued or live enemies exist
+PASS Titan 70 percent transition pauses three seconds
+PASS Titan 30 percent transition
+PASS Overdrive stops summoning
+PASS Titan skips directly to correct phase
+PASS Titan reaching tree defeats before victory
+PASS No income after defeat
+PASS Invalid skill target does not charge
+PASS Locked skill does not charge
+PASS Rain cost and cooldown
+PASS Pause freezes skill cooldown
+PASS Cooldown advances in combat
+PASS Tutorial freezes time before first plant
+PASS Tutorial first plant
+PASS Tutorial reserves money for upgrade
+PASS Tutorial reserves first upgrade until prompted
+PASS Tutorial freezes wave pending upgrade
+PASS Tutorial prevents selling its required tower
+PASS Tutorial upgrade unlocks combat
+PASS Tutorial combat resumes
+PASS Replay preserves best stars without farming
+PASS Upgrade spends stars only once
+PASS Star thresholds use upgraded maximum HP
+PASS Permanent health and economy bonuses apply
+PASS Preparation freezes skill cooldown and income
+PASS Next wave early bonus once
+PASS Next wave early bonus once
+PASS Next wave early bonus once
+PASS Next wave early bonus once
+PASS Five waves yield victory
+PASS All wave rewards include final reward
+PASS Victory records actual result
+PASS Escape damages tree and removes enemy
+PASS Repair caps at max HP
+PASS Repair once per preparation
+PASS Fire warns before ignition
+PASS Fire activates after warning
+PASS Rain extinguishes a burning cell
+PASS Nonzero skill cooldown freezes between waves
+PASS Ultimate boosts attack damage 50 percent
+PASS Ultimate leaves income and bomb intervals unchanged
+PASS Ultimate boosts bomb damage without changing recovery
+PASS Shockwave gives a two-second warning
+PASS Shockwave temporarily disables nearby towers
+PASS Titan phase one summons every twelve seconds
+PASS Boss death leaves existing support alive
+PASS Slow and poison expire
+PASS Retry starts with clean runtime state
+PASS: 145 checks. Pure C# simulation only; Unity import, rendering and builds are NOT covered.

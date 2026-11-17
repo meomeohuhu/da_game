@@ -1,0 +1,1 @@
+{"name":"EcoGuardian.Editor","references":["EcoGuardian.Core","EcoGuardian.Runtime"],"includePlatforms":["Editor"]}

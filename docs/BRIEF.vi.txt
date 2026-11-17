@@ -1,0 +1,214 @@
+Kịch bản thiết kế game 2D Người Gác Rừng
+Lời Thì Thầm Của Đại Ngàn
+Eco Guardian Whisper of the Ancient Forest
+Tài liệu mô tả cốt truyện, cơ chế chiến đấu và tiến trình cho game thủ thành Unity 2D. Chiến dịch gồm 5 màn, mỗi màn 5 wave; màn 5 kết thúc bằng trận Titan Lumber-X. Các thông số là giá trị khởi đầu để thử nghiệm và cân bằng.
+1 Tổng quan và bối cảnh
+Thể loại: Tower Defense 2D kết hợp chiến thuật và nâng cấp. Nền tảng: PC, điều khiển bằng chuột. Đồ họa hoạt hình 2D, góc nhìn từ trên xuống. Thời lượng chiến dịch mục tiêu 20–40 phút, cần xác nhận qua chơi thử.
+Cây Cổ Thụ ở trung tâm Đại Ngàn duy trì sự sống bằng nguồn năng lượng Sinh Khí. Một tổ chức khai thác đưa robot và máy móc vào rừng để chiếm nguồn năng lượng này. An, người gác rừng trẻ tuổi, được Linh Hồn Rừng lựa chọn để đánh thức các thực vật phòng thủ. An chỉ huy và sử dụng kỹ năng, không trực tiếp đánh cận chiến.
+
+
+Mở đầu
+Camera lướt qua dòng suối và những tán cây, dừng ở Cây Cổ Thụ phát sáng. Đoàn máy khai thác tiến vào và chặt một cây nhỏ. Ánh sáng từ Cây Mẹ gọi Linh Hồn Rừng đến trước An.
+Linh Hồn Rừng: “Nếu Cây Mẹ ngã xuống, sự sống ở Đại Ngàn cũng sẽ tắt. Hãy dùng Sinh Khí để đánh thức những người bảo vệ khu rừng.” An: “Tôi sẽ giữ con đường này. Chỉ cho tôi cách bắt đầu.” Cảnh chuyển sang hướng dẫn trồng Cây Gai ở màn 1.
+2 Vòng lặp và luật chơi
+Chuẩn bị → trồng hoặc nâng cấp tháp → bắt đầu wave → tiêu diệt địch → nhận Sinh Khí → chuẩn bị wave tiếp theo. Địch đi theo waypoint định sẵn đến Cây Cổ Thụ. Người chơi có thể xây và nâng cấp trong lúc wave diễn ra, nhưng không được đặt tháp chắn đường.
+Mỗi màn bắt đầu với Cây Cổ Thụ 100 HP và 150 Sinh Khí, không mang tháp hoặc tiền từ màn trước. Ô xây được đánh dấu rõ; ô đường, nước, chướng ngại và vùng ô nhiễm không cho xây. Chọn tháp, di chuột đến ô hợp lệ để xem tầm ảnh hưởng, nhấp để xác nhận; nhấp phải hoặc Esc để hủy.
+Giữa các wave có 15 giây chuẩn bị. Nút Bắt đầu sớm thưởng 10 Sinh Khí một lần cho mỗi wave tiếp theo. Bộ đếm chuẩn bị dừng khi pause. Wave chỉ kết thúc khi đã sinh đủ địch và không còn địch sống; địch thoát đến cây được loại khỏi bộ đếm sau khi gây sát thương.
+Thắng màn thường khi hoàn thành wave 5 và cây còn HP. Màn cuối yêu cầu Titan cùng toàn bộ địch hỗ trợ bị tiêu diệt. Cây về 0 HP thì thua ngay. Titan chạm cây gây 100 sát thương, tạo nguy cơ thất bại rõ ràng.
+3 Tài nguyên và nâng cấp trong màn
+Sinh Khí tự hồi 2 mỗi giây trong wave; không tự hồi khi đang chuẩn bị, pause hoặc đã kết thúc để tránh tích tiền vô hạn. Tiêu diệt địch nhận thưởng theo loại. Thưởng hoàn thành wave 1–5 lần lượt 30, 40, 50, 60 và 100; thưởng wave cuối được ghi vào thống kê.
+Tháp có 3 cấp. Nhấp tháp để xem chỉ số, nâng cấp hoặc bán. Bán hoàn lại 60% tổng giá xây và nâng cấp đã chi, làm tròn xuống. Sửa cây chỉ dùng giữa wave: 60 Sinh Khí hồi 15 HP, tối đa một lần mỗi khoảng chuẩn bị và không vượt HP tối đa.
+4 Hệ thống phòng thủ
+Tháp
+	Giá
+	Công dụng cấp 1
+	Nâng cấp cấp 2 và 3
+	Cây Gai
+	50
+	8 sát thương mỗi 0,8 giây; tầm 3 ô
+	Giá 60: 12 sát thương, 0,7 giây. Giá 90: 18 sát thương, 0,6 giây; 20% bắn thêm một gai.
+	Nấm Băng
+	80
+	4 sát thương mỗi 1,5 giây; tầm 3 ô; chậm 30% trong 2 giây
+	Giá 80: chậm 40%. Giá 120: mỗi đòn thứ 5 đóng băng 0,8 giây.
+	Hoa Sinh Khí
+	100
+	Không tấn công; tạo 15 Sinh Khí mỗi 10 giây
+	Giá 100: tạo 20. Giá 150: tạo 30. Chỉ sinh tài nguyên trong wave.
+	Quả Nổ
+	120
+	Bẫy tại ô riêng sát đường; nổ 60 sát thương bán kính 1,5 ô, hồi 8 giây
+	Giá 100: 90 sát thương, hồi 7 giây. Giá 150: 130 sát thương, bán kính 2 ô, hồi 6 giây.
+	Cây Độc
+	110
+	6 sát thương trực tiếp mỗi 1,2 giây; tầm 3 ô; độc 5 sát thương/giây trong 5 giây
+	Giá 100: độc 8/giây. Giá 140: độc 12/giây, kéo dài 6 giây.
+	Tháp tấn công mặc định ưu tiên địch gần Cây Cổ Thụ nhất trong tầm. Có thể đổi sang Gần nhất hoặc Máu cao nhất. Drone di chuyển theo đường như địch mặt đất và bị mọi tháp tấn công; không thêm hệ thống chống không riêng.
+Hiệu ứng chậm cùng loại không cộng dồn; áp dụng mức mạnh nhất và làm mới thời gian. Độc không cộng dồn giữa nhiều tháp, giữ mức sát thương mạnh nhất và làm mới thời gian. Độc bỏ qua giáp. Combo chủ đạo: Nấm Băng giữ địch trong vùng bắn, Cây Độc bào mục tiêu nhiều máu, Cây Gai xử lý địch lẻ và Quả Nổ dọn nhóm.
+5 Kẻ địch
+Loại
+	HP
+	Tốc độ ô/giây
+	Sát thương cây
+	Thưởng
+	Đặc điểm
+	Scout Bot
+	30
+	1.2
+	5
+	5
+	Cơ bản
+	Lumber Bot
+	80
+	0.8
+	10
+	10
+	Máu trung bình
+	Speed Drone
+	45
+	1.8
+	5
+	8
+	Di chuyển nhanh
+	Bulldozer
+	300
+	0.45
+	20
+	30
+	Giảm 30% sát thương trực tiếp
+	Jammer Drone
+	100
+	1
+	10
+	15
+	Giảm 30% tốc độ bắn tháp trong 2,5 ô; không cộng dồn
+	Heavy Lumber Bot
+	500
+	0.4
+	25
+	50
+	Mini boss màn 1
+	Toxic Excavator
+	700
+	0.4
+	30
+	70
+	Boss màn 2
+	Fire Machine
+	900
+	0.4
+	30
+	80
+	Boss màn 3
+	Titan Lumber-X
+	5000
+	0.25
+	100
+	200
+	Boss cuối 3 giai đoạn
+	Tháp không có HP: lửa và sóng xung kích chỉ vô hiệu hóa tạm thời, không phá hủy tháp. Trạng thái khóa tháp có biểu tượng và bộ đếm. Boss chỉ chịu một nửa hiệu lực làm chậm và thời gian trói hoặc đóng băng để tránh bị giữ chân liên tục.
+6 Kỹ năng của An
+Kỹ năng
+	Hiệu quả
+	Chi phí và hồi chiêu
+	Mở khóa
+	Mưa Rừng
+	Vùng bán kính 3 ô: dập lửa và chậm địch 30% trong 4 giây
+	30 Sinh Khí; 30 giây
+	Đầu màn 3
+	Rễ Đại Ngàn
+	Trói địch trong vùng 2 ô trong 3 giây
+	40 Sinh Khí; 40 giây
+	Đầu màn 4
+	Sức Mạnh Cổ Thụ
+	Tháp tấn công tăng 50% sát thương và 30% tốc độ bắn trong 10 giây
+	80 Sinh Khí; 90 giây
+	Đầu màn 5
+	Chọn kỹ năng rồi nhấp vị trí hợp lệ để thi triển; Ultimate kích hoạt trực tiếp. Chỉ trừ tài nguyên khi thi triển thành công. Cooldown chỉ chạy trong wave. Ultimate không tăng tài nguyên của Hoa Sinh Khí và không rút ngắn hồi phục Quả Nổ.
+7 Chiến dịch 5 màn và 25 wave
+Số lượng dưới đây là cấu hình khởi đầu. Mỗi nhóm xuất hiện cách nhau khoảng 1,2 giây; địch nặng cách nhau 2 giây. Các cổng hoạt động đồng thời khi có nhiều đường. Các wave tăng dần áp lực, giới thiệu từng cơ chế trước khi kết hợp chúng.
+Màn 1 Tiếng động trong rừng
+Một đường đi uốn cong, 8 ô xây. Mở Cây Gai và Quả Nổ ngay từ đầu. Hướng dẫn lần lượt chọn ô, xây tháp, bắt đầu wave và nâng cấp; hướng dẫn dừng thời gian đến khi người chơi hoàn thành thao tác.
+Wave 1: 5 Scout.
+Wave 2: 8 Scout.
+Wave 3: 5 Scout + 3 Lumber.
+Wave 4: 10 Scout + 5 Lumber.
+Wave 5: 1 Heavy Lumber + 6 Scout.
+“Đây chỉ là đội trinh sát. Hãy theo dòng suối, ta cảm nhận được điều bất thường.” Hoàn thành mở Nấm Băng.
+Màn 2 Dòng suối bị đầu độc
+Hai đường nhập lại gần cây, 10 ô xây. Ba ô ô nhiễm không thể xây; đánh dấu trước khi wave bắt đầu. Toxic Excavator dùng đường chính, không tạo thêm ô ô nhiễm để giữ cơ chế đơn giản.
+Wave 1: 8 Scout + 4 Lumber.
+Wave 2: 8 Scout + 4 Speed.
+Wave 3: 10 Lumber + 6 Speed.
+Wave 4: 2 Bulldozer + 8 Scout.
+Wave 5: 1 Toxic Excavator + 8 Lumber + 6 Speed.
+Dòng suối hồi phục. An: “Chúng không chỉ lấy đi cây. Chúng đang lấy cả nguồn sống.” Mở Hoa Sinh Khí.
+Màn 3 Đêm lửa rừng
+Hai đường và 12 ô xây. Đầu màn mở Cây Độc và Mưa Rừng. Từ wave 2, mỗi 20 giây một ô định trước cháy sau cảnh báo 3 giây. Lửa lan một ô liền kề sau 8 giây, tối đa 3 ô mỗi cụm. Tháp trong ô cháy ngừng hoạt động; trở lại ngay khi dập lửa. Đám cháy tự tắt sau 20 giây.
+Wave 1: 10 Lumber + 6 Scout.
+Wave 2: 10 Speed + 6 Lumber.
+Wave 3: 3 Bulldozer + 8 Scout.
+Wave 4: 2 Bulldozer + 10 Lumber + 8 Speed.
+Wave 5: 1 Fire Machine + 10 Lumber + 8 Speed.
+Mưa rừng dập những đám cháy cuối. Linh Hồn Rừng: “Ta vẫn còn thời gian, nhưng đoàn máy chính đã tới.”
+Màn 4 Cuộc tấn công tổng lực
+Ba cổng dẫn về hai tuyến chính, 14 ô xây. Mở Rễ Đại Ngàn, giới thiệu Jammer. Dùng vị trí tháp và ưu tiên mục tiêu để xử lý nhiễu. Không thêm lửa để người chơi tập trung vào nhiều hướng tấn công.
+Wave 1: 12 Scout + 8 Lumber.
+Wave 2: 12 Speed + 2 Jammer.
+Wave 3: 4 Bulldozer + 12 Lumber.
+Wave 4: 3 Jammer + 12 Speed + 10 Lumber.
+Wave 5: 2 Bulldozer + 10 Speed + 15 Lumber.
+Mặt đất rung chuyển, Titan xuất hiện ngoài bìa rừng. Linh Hồn Rừng: “Cỗ máy ấy đang hướng thẳng về Cây Mẹ.”
+Màn 5 Trái tim Đại Ngàn
+Ba cổng, 16 ô xây, mọi tháp và kỹ năng đã mở. Bốn wave đầu tích lũy lực lượng. Wave 5 là trận Titan, có thanh HP và cảnh báo giai đoạn riêng.
+Wave 1: 12 Scout + 10 Lumber.
+Wave 2: 10 Speed + 3 Bulldozer.
+Wave 3: 3 Jammer + 12 Lumber.
+Wave 4: 4 Bulldozer + 12 Speed + 2 Jammer.
+Wave 5: 1 Titan; quân hỗ trợ theo giai đoạn ở phần tiếp theo.
+Tiêu diệt Titan và toàn bộ quân hỗ trợ để kết thúc chiến dịch.
+8 Titan Lumber X và trận cuối
+Giai đoạn 1, HP trên 70%: Titan tiến chậm theo đường chính. Mỗi 12 giây gọi 3 Scout tại cổng phụ. Người chơi cần vừa bào máu boss vừa duy trì phòng thủ tuyến phụ.
+Giai đoạn 2, HP từ 70% đến trên 30%: Titan dừng 3 giây khi chuyển giai đoạn rồi tiếp tục đi. Mỗi 18 giây phát Shockwave khóa tháp trong bán kính 3 ô trong 3 giây, có vòng cảnh báo trước 2 giây. Mỗi 15 giây gọi 2 Lumber và 2 Speed; mỗi lượt gọi thứ hai thêm 1 Jammer.
+Giai đoạn 3, HP từ 30% trở xuống: tốc độ Titan tăng lên 0,5 ô/giây. Hiện cảnh báo TITAN OVERDRIVE, dừng gọi quân mới và ngừng Shockwave. Người chơi dùng kỹ năng và nâng cấp còn lại để chặn boss trước cây. Chuyển giai đoạn chỉ xảy ra một lần; nếu nhận sát thương lớn vượt ngưỡng, chuyển thẳng đến giai đoạn phù hợp.
+Khi boss chết, dừng sinh quân hỗ trợ. Quân đã có vẫn phải bị tiêu diệt; thanh wave chỉ hoàn tất khi không còn địch. Khi boss tới cây, xử lý sát thương trước rồi kiểm tra Game Over, không kích hoạt Victory đồng thời.
+9 Kết thúc và tiến trình
+Titan dừng hoạt động. Ánh sáng xanh lan từ Cây Cổ Thụ, dòng suối trong trở lại, những mầm cây mọc trên đất cháy. An đặt tay lên thân cây. Linh Hồn Rừng: “Đại Ngàn đã sống qua đêm nay. Ngày mai, chúng ta sẽ trồng lại những gì đã mất.” Màn hình hiện Khu rừng đã được bảo vệ.
+Thống kê lấy từ lượt chơi thực tế: địch tiêu diệt, số tháp đã trồng, HP cây còn lại, thời gian và sao. Màn thua hiển thị Thử lại, Chọn màn, Menu chính. Thử lại khởi tạo lại toàn bộ tài nguyên, tháp, địch và cooldown của màn.
+Mỗi màn có tối đa 3 sao: 1 sao khi thắng với HP dưới 50%; 2 sao khi còn từ 50% đến dưới 80%; 3 sao khi còn ít nhất 80%. Tỷ lệ tính theo HP tối đa sau nâng cấp. Lưu số sao tốt nhất; chơi lại không cộng sao vô hạn.
+Sao dùng mở nâng cấp vĩnh viễn: Tấn công tăng 10% sát thương trực tiếp, Phòng thủ tăng 20 HP cây, Kinh tế tăng 30 Sinh Khí khởi đầu. Mỗi nhánh một cấp, giá 3 sao. Lưu tổng sao đạt được và sao đã chi riêng. Đây là phần mở rộng sau khi hệ thống chiến dịch chạy ổn định.
+10 Giao diện và điều khiển
+Menu chính gồm Chơi, Chọn màn, Nâng cấp, Hướng dẫn, Cài đặt và Thoát. Chọn màn hiển thị tên, sao tốt nhất và trạng thái khóa; hoàn thành màn trước mở màn sau. Nút Chơi tiếp đưa đến màn chưa hoàn thành gần nhất.
+HUD: góc trên trái hiển thị HP cây; góc trên phải là Sinh Khí; trên giữa là wave và số địch còn lại. Thanh dưới chứa 5 loại tháp, giá và trạng thái khóa. Bên phải là 3 kỹ năng với chi phí và cooldown. Panel tháp hiển thị cấp, chỉ số, nút nâng cấp và bán. Pause cho phép tiếp tục, chơi lại hoặc về menu.
+Chuột trái để chọn và xác nhận; chuột phải hoặc Esc hủy thao tác; Esc khi không chọn gì mở pause. UI chặn nhấp xuyên xuống bản đồ. Ô không hợp lệ chuyển đỏ; thiếu Sinh Khí hiển thị thông báo ngắn và không trừ tiền.
+11 Cấu trúc Unity đề xuất
+Scene: MainMenu, LevelSelect và Gameplay. Gameplay tải cấu hình riêng cho Level01 đến Level05; Victory và GameOver là panel trong scene. Có thể tách thành 5 scene gameplay nếu nhóm cần dựng map độc lập. Dùng Tilemap cho nền, đường, nước, vật cản, trang trí và ô xây; waypoint và spawnpoint dùng GameObject.
+Thành phần
+	Trách nhiệm
+	GameManager
+	Trạng thái Prepare, Combat, Paused, Victory và Defeat; kết quả màn
+	WaveManager
+	Đọc cấu hình nhóm địch, cổng, thời gian sinh và đếm địch sống
+	Enemy và EnemyMovement
+	HP, giáp, thưởng, hiệu ứng trạng thái và di chuyển waypoint
+	Tower và Projectile
+	Chọn mục tiêu, bắn, va chạm và sát thương
+	TowerPlacement và TowerUpgrade
+	Kiểm tra ô, thanh toán, nâng cấp và bán
+	ResourceManager và AncientTree
+	Sinh Khí, hồi tài nguyên, HP cây và sửa chữa
+	SkillManager và EnvironmentManager
+	Thi triển kỹ năng, cooldown, ô ô nhiễm và lửa
+	BossController
+	Ngưỡng HP, quân hỗ trợ, Shockwave và tăng tốc
+	UIManager và SaveManager
+	HUD, panel và lưu tiến trình
+	ScriptableObject: TowerData chứa 3 cấp chỉ số; EnemyData chứa HP, tốc độ, giáp, sát thương và thưởng; LevelData chứa map, tài nguyên, tháp/kỹ năng mở và 5 WaveData. Prefab chính gồm 5 tháp, 5 địch thường, 3 boss nhỏ, Titan, đạn và hiệu ứng. Dùng pooling cho địch, đạn và hiệu ứng nếu cần tối ưu.
+Lưu cục bộ dạng JSON: màn mở cao nhất, sao tốt nhất từng màn, nâng cấp đã mua và cài đặt. Chỉ lưu sau khi kết thúc màn hoặc thay đổi nâng cấp; không cần lưu giữa wave. Tách dữ liệu cấu hình khỏi trạng thái runtime để tránh sửa trực tiếp asset khi chơi.
+12 Hình ảnh và âm thanh
+Tháp có hình khác nhau theo cấp; địch độc chuyển xanh, đóng băng có biểu tượng băng. Ô cháy, vùng nhiễu và Shockwave có cảnh báo rõ. Cây bị đánh nháy ngắn; rung camera nhẹ khi boss xuất hiện, có tùy chọn tắt.
+Sử dụng nhạc nền và hiệu ứng âm thanh phù hợp với từng màn chơi.
+13 Phạm vi và thứ tự triển khai
+Tuần 1: hoàn thành một map, waypoint, Scout, Cây Gai, Sinh Khí, HP cây, 5 wave và thắng thua. Tuần 2: thêm tháp còn lại, nâng cấp, bán, hiệu ứng và 5 địch thường. Tuần 3: dựng 5 map, cơ chế lửa, kỹ năng và Titan. Tuần 4: menu, lưu tiến trình, kiểm thử, cân bằng và đóng gói demo. Đây là kế hoạch mục tiêu; thời gian thực tế phụ thuộc số thành viên và tài nguyên đồ họa.
+Nếu tiến độ chậm, giữ đủ 5 màn nhưng ưu tiên 3 tháp gốc, 3 địch thường và Titan; thêm Hoa Sinh Khí, Cây Độc, Jammer và nâng cấp ngoài màn sau. Không thêm multiplayer hoặc hệ thống nhiệm vụ lớn trước khi vòng lặp chiến đấu hoạt động ổn định.
+Kiểm thử cần xác nhận: không xây chồng ô; không trừ tiền khi thao tác lỗi; địch chết chỉ thưởng một lần; pause dừng mọi timer; wave không kết thúc khi còn quân; độc và slow đúng quy tắc; tải lại giữ sao tốt nhất; boss chuyển giai đoạn đúng ngưỡng; không thắng và thua cùng lúc. Chơi thử từng màn để điều chỉnh thu nhập, thời gian đường đi và sức mạnh tháp.

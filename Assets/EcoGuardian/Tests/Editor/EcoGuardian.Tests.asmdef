@@ -1,0 +1,1 @@
+{"name":"EcoGuardian.Tests","references":["EcoGuardian.Core"],"includePlatforms":["Editor"],"optionalUnityReferences":["TestAssemblies"]}

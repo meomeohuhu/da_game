@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6372fc936cd32ead90c02e85b3de1121, type: 3}
+  m_Name: Level02
+  m_EditorClassIdentifier:
+  configuration:
+    index: 2
+    title: Dòng suối bị đầu độc
+    subtitle: Giữ hai tuyến đường. Hồi sinh dòng suối.
+    ending: Chúng không chỉ lấy đi cây. Chúng đang lấy cả nguồn sống.
+    routes:
+    - points:
+      - x: -1
+        y: 2
+      - x: 4
+        y: 2
+      - x: 4
+        y: 7
+      - x: 10
+        y: 7
+      - x: 10
+        y: 4
+      - x: 16
+        y: 4
+      - x: 16
+        y: 5
+      - x: 19
+        y: 5
+    - points:
+      - x: -1
+        y: 9
+      - x: 7
+        y: 9
+      - x: 7
+        y: 7
+      - x: 10
+        y: 7
+      - x: 10
+        y: 4
+      - x: 16
+        y: 4
+      - x: 16
+        y: 5
+      - x: 19
+        y: 5
+    pads:
+    - position:
+        x: 3
+        y: 3
+      trap: false
+      polluted: false
+    - position:
+        x: 5
+        y: 6
+      trap: true
+      polluted: false
+    - position:
+        x: 8
+        y: 6
+      trap: false
+      polluted: false
+    - position:
+        x: 11
+        y: 5
+      trap: false
+      polluted: false
+    - position:
+        x: 13
+        y: 3
+      trap: false
+      polluted: false
+    - position:
+        x: 15
+        y: 5
+      trap: true
+      polluted: false
+    - position:
+        x: 3
+        y: 6
+      trap: false
+      polluted: false
+    - position:
+        x: 9
+        y: 4
+      trap: false
+      polluted: false
+    - position:
+        x: 6
+        y: 8
+      trap: false
+      polluted: false
+    - position:
+        x: 9
+        y: 8
+      trap: false
+      polluted: false
+    - position:
+        x: 1
+        y: 6
+      trap: false
+      polluted: true
+    - position:
+        x: 2
+        y: 6
+      trap: false
+      polluted: true
+    - position:
+        x: 2
+        y: 7
+      trap: false
+      polluted: true
+    waves:
+    - groups:
+      - kind: 0
+        count: 8
+      - kind: 1
+        count: 4
+    - groups:
+      - kind: 0
+        count: 8
+      - kind: 2
+        count: 4
+    - groups:
+      - kind: 1
+        count: 10
+      - kind: 2
+        count: 6
+    - groups:
+      - kind: 3
+        count: 2
+      - kind: 0
+        count: 8
+    - groups:
+      - kind: 6
+        count: 1
+      - kind: 1
+        count: 8
+      - kind: 2
+        count: 6

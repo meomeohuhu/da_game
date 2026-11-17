@@ -1,0 +1,12 @@
+name: Core rules
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  simulation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Run deterministic C# rule checks
+        run: dotnet run --project Tests/CoreHarness/CoreHarness.csproj --configuration Release
