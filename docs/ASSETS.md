@@ -24,3 +24,7 @@ To the extent possible under law, the original plant/tree illustrations and synt
 ## Nocturne visual revision
 
 Original CC0 procedural artwork now replaces the six plant/tree sprites and adds nine industrial enemy sprites (`enemy_*.png`) plus `dark-forest.jpg`. The new direction uses angular silhouettes, weathered metal, root/stone bases, restrained cyan and amber illumination, and no cartoon eyes on the towers. These assets are shared by Unity and BrowserDemo. Original dedicated assets retain the CC0 dedication above; Kenney artwork still used for rocks/flames remains under its bundled license.
+
+## Painted turret atlas
+
+`turrets-painted.png` is an original AI-generated transparent 2172×724 atlas made for this project, replacing the five procedural plant sprites in browser and Unity rendering. It is not a third-party asset pack and is not represented as human-painted or as a copy of the reference illustration. Browser Canvas, CSS and Unity IMGUI select one of five equal source regions at runtime; the original PNG is preserved. Individual upgrade/attack animation frames are not included.

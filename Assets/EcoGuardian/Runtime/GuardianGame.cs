@@ -75,7 +75,8 @@ namespace EcoGuardian
             bool before=GUI.enabled;GUI.enabled=before&&enabled;bool hit=GUI.Button(r,text,button);GUI.enabled=before;return hit;
         }
         Texture2D Art(string name){if(!art.ContainsKey(name))art[name]=Resources.Load<Texture2D>("Art/"+name);return art[name];}
-        void Sprite(string name,Rect r,Color? tint=null){var t=Art(name);if(t==null)return;GUI.color=tint??Color.white;GUI.DrawTexture(r,t,ScaleMode.ScaleToFit);GUI.color=Color.white;}
+        void Sprite(string name,Rect r,Color? tint=null){int index=Array.IndexOf(towerSprites,name);var atlas=Art("turrets-painted");if(index>=0&&atlas!=null){float aspect=atlas.width/5f/atlas.height;float width=Mathf.Min(r.width,r.height*aspect);var target=new Rect(r.x+(r.width-width)/2,r.y,width,r.height);GUI.color=tint??Color.white;GUI.DrawTextureWithTexCoords(target,atlas,new Rect(index/5f,0,.2f,1));GUI.color=Color.white;return;}var t=Art(name);if(t==null)return;GUI.color=tint??Color.white;GUI.DrawTexture(r,t,ScaleMode.ScaleToFit);GUI.color=Color.white;}
+
         Vector2 Pos(V v){return new Vector2(BX+(v.x+.5f)*Cell,BY+(v.y+.5f)*Cell);}
         void Line(Vector2 a,Vector2 b,float thickness,Color color){var old=GUI.matrix;float angle=Mathf.Atan2(b.y-a.y,b.x-a.x)*Mathf.Rad2Deg;GUIUtility.RotateAroundPivot(angle,a);Fill(new Rect(a.x,a.y-thickness/2,(b-a).magnitude,thickness),color);GUI.matrix=old;}
         void Circle(Vector2 p,float radius,Color c){for(int i=0;i<48;i++){float a=i*Mathf.PI/24,b=(i+1)*Mathf.PI/24;Line(p+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius,p+new Vector2(Mathf.Cos(b),Mathf.Sin(b))*radius,2,c);}}
