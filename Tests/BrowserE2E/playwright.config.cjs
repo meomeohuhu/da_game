@@ -1,0 +1,1 @@
+module.exports={testDir:'.',timeout:90000,use:{baseURL:'http://127.0.0.1:8765',viewport:{width:1440,height:1000},screenshot:'only-on-failure',trace:'retain-on-failure'},webServer:{command:'python3 -m http.server 8765 --directory ../../browser-build/wwwroot',port:8765,reuseExistingServer:false},reporter:[['list'],['html',{open:'never'}]]};

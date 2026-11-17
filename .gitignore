@@ -24,3 +24,6 @@ BrowserDemo/obj/
 **/bin/
 **/obj/
 !Tests/BrowserBridge/BrowserBridge.csproj
+node_modules/
+Tests/BrowserE2E/test-results/
+Tests/BrowserE2E/playwright-report/
