@@ -1,0 +1,3 @@
+[submodule "External/TowerDefenseTemplate"]
+	path = External/TowerDefenseTemplate
+	url = https://github.com/witaliden/Tower-Defense.git
