@@ -9,5 +9,7 @@ test('one Start click launches real WASM enemies and pause stops them',async({pa
  const state=await page.evaluate(()=>window.guardian.getState());expect(state.tutorial).toBe(4);expect(state.towers[0].level).toBe(2);expect(state.wave).toBe(1);
  await page.locator('#pause').click();const before=await page.evaluate(()=>window.guardian.getState().elapsed);await page.waitForTimeout(1200);expect(await page.evaluate(()=>window.guardian.getState().elapsed)).toBe(before);
  await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();await expect.poll(()=>page.evaluate(()=>window.guardian.getState().elapsed)).toBeGreaterThan(before);
+ await expect.poll(()=>page.evaluate(()=>window.guardian.getVfxStats().emitted),{timeout:20000}).toBeGreaterThan(0);
+ await expect.poll(()=>page.evaluate(()=>window.guardian.getVfxStats().drawn),{timeout:10000,intervals:[50]}).toBeGreaterThan(0);
  await page.screenshot({path:'test-results/wave-running.png',fullPage:true});expect(errors).toEqual([]);
 });
